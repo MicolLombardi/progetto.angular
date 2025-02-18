@@ -1,0 +1,38 @@
+#container {
+  display: flex;
+  flex-direction: column; /* Colonne per titolo + form */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Altezza che copre tutta la finestra */
+  background-color: #f3e5f5; /* Lilla chiaro */
+  padding: 1rem; /* Spaziatura per dispositivi piccoli */
+}
+
+.category {
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+
+
+
+input.form-control {
+  flex: 1;
+}
+
+form {
+  max-width: 600px;
+}
+
+
+button{
+  background-color: #7b1fa2;
+  white-space: nowrap;
+}
+
+form button:hover {
+  background-color: #4a0072; /* Viola più scuro al passaggio */
+}
+.form-container {
+  max-height: 90vh; /* Evita che il form superi la viewport */
+  overflow-y: auto; /* Permette lo scroll verticale */
+}

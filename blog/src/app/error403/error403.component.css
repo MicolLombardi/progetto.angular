@@ -1,0 +1,12 @@
+.error-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #d3d3d3; /* Grigio chiaro */
+    color: #fff; /* Bianco */
+    font-size: 5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  

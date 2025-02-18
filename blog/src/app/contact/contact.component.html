@@ -1,0 +1,34 @@
+<!-- contact.component.html -->
+<div class="form-container">
+    <h1>Contattaci</h1>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <label for="nome">Nome</label>
+      <input id="nome" formControlName="nome" type="text" placeholder="Inserisci il tuo nome">
+      <div class="error-message" *ngIf="contactForm.get('nome')?.invalid && contactForm.get('nome')?.touched">
+        Nome obbligatorio
+      </div>
+  
+      <label for="cognome">Cognome</label>
+      <input id="cognome" formControlName="cognome" type="text" placeholder="Inserisci il tuo cognome">
+      <div class="error-message" *ngIf="contactForm.get('cognome')?.invalid && contactForm.get('cognome')?.touched">
+        Cognome obbligatorio
+      </div>
+  
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" placeholder="Inserisci la tua email">
+      <div class="error-message" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+        Email non valida
+      </div>
+  
+      <label for="messaggio">Messaggio</label>
+      <textarea id="messaggio" formControlName="messaggio" rows="4" placeholder="Scrivi il tuo messaggio"></textarea>
+      <div class="error-message" *ngIf="contactForm.get('messaggio')?.invalid && contactForm.get('messaggio')?.touched">
+        Il messaggio non può essere vuoto
+      </div>
+  
+      <button type="submit" [disabled]="contactForm.invalid">Invia</button>
+      <app-modal [message]="'Messaggio inviato con successo!'"></app-modal>
+
+    </form>
+  </div>
+  

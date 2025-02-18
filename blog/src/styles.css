@@ -1,0 +1,188 @@
+.dark-mode body, 
+.dark-mode html {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Navbar */
+.dark-mode .navbar {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+/* Login/Register */
+.dark-mode .login-container,
+.dark-mode .register-container,
+.dark-mode .post-container,
+.dark-mode .summary-container{
+  background: #1c1c1c !important;
+}
+
+.dark-mode .login-box,
+.dark-mode .register-box {
+  background-color: #414040 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Titoli */
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode h3 {
+  color: #ffffff !important;
+}
+
+/* Form */
+.dark-mode label.form-label{
+  color: beige;
+  background-color: #2a2a2a !important;
+
+}
+.dark-mode input.form-control,
+.dark-mode .form-container {
+  background-color: #2a2a2a !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* Pulsanti */
+.dark-mode button {
+  background-color: #8b5cf6 !important;
+  color: #ffffff !important;
+}
+
+.dark-mode button:hover {
+  background-color: #6b21a8 !important;
+}
+
+.dark-mode .delete-btn{
+  background-color: red !important;
+}
+.dark-mode .delete-btn:hover{
+  background-color: rgb(231, 56, 56) !important;
+}
+/* Link */
+.dark-mode a {
+  color: #b6add3 !important;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #444 !important;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+.dark-mode table {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+.dark-mode th,
+.dark-mode td {
+  background-color: #2a2a2a !important;
+  color: #e0e0e0 !important;
+  border-color: #555 !important;
+}
+
+.dark-mode thead {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+.dark-mode tbody tr:nth-child(even) {
+  background-color: #252525 !important;
+}
+
+.dark-mode tbody tr:hover {
+  background-color: #3a3a3a !important;
+}
+body.dark-mode form {
+  background: #1e1e1e; /* Sfondo scuro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Ombra più intensa */
+}
+.dark-mode p{
+  color: #fff;
+}
+.dark-mode input.form-control::placeholder {
+  color: #bbb !important;
+}
+.dark-mode #login {
+  background: #121212 !important; /* Sfondo scuro */
+  color: #e0e0e0 !important;
+}
+.dark-mode app-register {
+  background: #121212 !important; /* Sfondo scuro */
+  color: #e0e0e0 !important;
+}
+.dark-mode .category{
+  background: #2a2a2a !important;
+  }
+.dark-mode #login-button{
+  background-color: #6b21a8;
+  color: white !important;;
+}
+.dark-mode #esplora,
+.dark-mode #more{
+  color: white !important;
+}
+.dark-mode .summary-item{
+  color: white !important;;
+}
+.dark-mode label{
+  color: white !important;
+}
+.dark-mode textarea{
+  background-color: #2a2a2a !important;
+  color: white !important;
+}
+.dark-mode ::placeholder {
+  color: white;
+  opacity: 1;
+}
+.dark-mode #title{
+  background-color:  #2a2a2a !important;
+  color: white !important;;
+}
+.dark-mode .result{
+  background-color:  #2a2a2a !important;
+  color: white !important;;
+
+}
+.dark-mode .modal.fade.show {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dark-mode .modal-content {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* Modal header */
+.dark-mode .modal-header {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Modal title */
+.dark-mode .modal-title {
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Modal body */
+.dark-mode .modal-body {
+  color: #ccc;
+  background-color:#333;
+}
+
+/* Modal footer */
+.dark-mode .modal-footer {
+  background-color: #444;
+}
+
+/* Modal on open */
+.dark-mode .modal.fade.show .modal-dialog {
+  transition: transform 0.3s ease-out;
+}
+

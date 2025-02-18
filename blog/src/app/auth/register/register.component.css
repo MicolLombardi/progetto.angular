@@ -1,0 +1,56 @@
+/* Contenitore principale */
+.register-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #e0c3fc, #ffffff);
+  width: 100%;
+  padding: 20px; /* Evita overflow su schermi piccoli */
+  box-sizing: border-box; /* Impedisce che il padding aumenti le dimensioni */
+}
+
+/* Box di registrazione */
+.register-box {
+  width: 100%;
+  max-width: 400px; /* Limita la larghezza massima */
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Titolo */
+.register-box h2 {
+  margin-bottom: 20px;
+  color: #6c63ff;
+  text-align: center;
+}
+
+/* Stile generale per i campi di input */
+.form-control {
+  height: 50px;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ced4da;
+  width: 100%; /* Impedisce che l'input si allarghi */
+  box-sizing: border-box;
+}
+
+/* Pulsante */
+.btn-primary {
+  background-color: #6c63ff;
+  border-color: #6c63ff;
+  color: #ffffff;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.register-box,
+.form-control,
+.btn-primary {
+  min-width: 280px; /* Assicura una buona leggibilità su dispositivi molto piccoli */
+}

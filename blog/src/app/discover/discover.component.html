@@ -1,0 +1,19 @@
+<!-- zodiac-tarot.component.html -->
+<div class="form-container">
+    <h1>Scopri il tuo Tarocco</h1>
+    <form [formGroup]="zodiacForm" (ngSubmit)="onSubmit()">
+      <label for="dob">Data di nascita</label>
+      <input id="dob" formControlName="dob" type="date">
+      <div class="error-message" *ngIf="zodiacForm.get('dob')?.invalid && zodiacForm.get('dob')?.touched">
+        Data di nascita obbligatoria
+      </div>
+  
+      <button type="submit" [disabled]="zodiacForm.invalid">Scopri</button>
+    </form>
+    
+    <div *ngIf="tarotCard" class="result">
+      <h2>Il tuo tarocco: {{ tarotCard }}</h2>
+    </div>
+  </div>
+  
+  

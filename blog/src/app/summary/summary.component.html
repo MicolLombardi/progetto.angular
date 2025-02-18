@@ -1,0 +1,28 @@
+<div class="summary-container">
+    <h2 class="title">Riepilogo Utente</h2>
+    <div *ngIf="userData; else loading" class="summary-content">
+      <div class="summary-item">
+        <strong>Nome Completo:</strong> {{ userData.fullName }}
+      </div>
+      <div class="summary-item">
+        <strong>Username:</strong> {{ userData.userHandle }}
+      </div>
+      <div class="summary-item">
+        <strong>Email:</strong> {{ userData.contactEmail }}
+      </div>
+      <div class="summary-item">
+        <strong>Indirizzo:</strong> {{ userData.streetName }} {{ userData.apartment }}
+      </div>
+      <div class="summary-item">
+        <strong>Città:</strong> {{ userData.town }}
+      </div>
+      <div class="summary-item">
+        <strong>CAP:</strong> {{ userData.postalCode }}
+      </div>
+    </div>
+    <ng-template #loading>
+      <p class="loading-text">Caricamento dati...</p>
+    </ng-template>
+    <button routerLink="/form" class="back-button">Indietro</button>
+  </div>
+  

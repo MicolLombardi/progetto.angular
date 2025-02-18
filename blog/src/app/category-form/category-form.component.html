@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-center align-items-center vh-100" [ngClass]="{'dark': isDarkMode}">
+  <form id="box" [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="p-4 border rounded shadow-sm bg-white w-50 form-container" [ngClass]="{'dark mode': isDarkMode}">
+    <h3 class="text-center mb-4">Gestione Categorie</h3>
+
+    <!-- Campi non annidati -->
+    <div class="mb-3">
+      <label for="title" class="form-label">Titolo</label>
+      <input
+        id="title"
+        formControlName="title"
+        class="form-control"
+        placeholder="Inserisci il titolo"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Descrizione</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="form-control"
+        rows="3"
+        placeholder="Inserisci la descrizione"
+      ></textarea>
+    </div>
+
+    <!-- Pulsante per aggiungere categorie -->
+    <div class="d-flex justify-content-end mb-3">
+      <button type="button" class="btn btn-success btn-sm" (click)="addCategory()">
+        + Categoria
+      </button>
+    </div>
+
+    <!-- Categorie -->
+    <div formArrayName="categories">
+      <div
+        *ngFor="let category of categories.controls; let i = index"
+        [formGroupName]="i"
+        class="category mb-3 p-3 border rounded bg-light d-flex align-items-center position-relative"
+        [ngClass]="{'dark mode': isDarkMode}"
+      >
+        <div class="flex-grow-1">
+          <div class="mb-2">
+            <label for="category-name-{{ i }}" class="form-label">Nome Categoria</label>
+            <input
+              id="category-name-{{ i }}"
+              formControlName="name"
+              class="form-control"
+              placeholder="Nome Categoria"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="category-description-{{ i }}" class="form-label">Descrizione Categoria</label>
+            <input
+              id="category-description-{{ i }}"
+              formControlName="description"
+              class="form-control"
+              placeholder="Descrizione Categoria"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="category-price-{{ i }}" class="form-label">Prezzo Categoria</label>
+            <input
+              id="category-price-{{ i }}"
+              formControlName="price"
+              type="number"
+              class="form-control"
+              placeholder="Prezzo Categoria"
+            />
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm ms-3 align-self-center"
+          (click)="removeCategory(i)"
+        >
+          Rimuovi
+        </button>
+      </div>
+    </div>
+
+    <!-- Pulsante Salva -->
+    <div class="d-flex justify-content-end mt-4">
+      <button type="submit" class="btn btn-primary">Salva</button>
+    </div>
+    <app-modal [message]="modalMessage"></app-modal>
+  </form>
+</div>

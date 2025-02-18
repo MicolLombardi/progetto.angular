@@ -1,0 +1,46 @@
+/* Contenitore principale */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #e0c3fc, #ffffff);
+  width: 100%;
+  padding: 5%;
+}
+
+/* Box di login */
+.login-box {
+  width: min(400px, 90%); /* Usa la dimensione minore tra 400px e il 90% dello schermo */
+  padding: clamp(20px, 5vw, 30px); /* Adatta il padding in base alla viewport */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titolo */
+.login-box h2 {
+  margin-bottom: 1.25rem;
+  color: #6c63ff;
+  text-align: center;
+  font-size: clamp(1.2rem, 4vw, 1.5rem); /* Adatta la dimensione del testo */
+}
+
+/* Stile generale per i campi di input */
+.form-control {
+  height: clamp(45px, 5vh, 50px); /* Altezza adattabile */
+  font-size: clamp(14px, 1.2vw, 16px); /* Testo che si adatta */
+  background-color: white;
+  color: black;
+  border: 1px solid #ced4da;
+}
+
+/* Pulsante */
+.btn-primary {
+  background-color: #6c63ff;
+  border-color: #6c63ff;
+  color: #ffffff;
+  font-size: clamp(14px, 1.2vw, 16px);
+  padding: clamp(10px, 2vw, 12px);
+  width: 100%; /* Fa in modo che il bottone si adatti al contenitore */
+}

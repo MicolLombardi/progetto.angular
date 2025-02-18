@@ -1,0 +1,112 @@
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f3e5f5;
+      padding: 1rem;
+    }
+  
+    h1 {
+      color: #6a1b9a;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  
+    body.dark-mode h1 {
+      color: #bb86fc;
+    }
+  
+    form {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+  
+    body.dark-mode form {
+      background: #1e1e1e;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+  
+    form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #d1c4e9;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+      background-color: #ffffff;
+      color: #000000;
+    }
+  
+    body.dark-mode form input {
+      background-color: #2e2e2e;
+      color: #ffffff;
+      border: 1px solid #7b1fa2;
+    }
+  
+    form input:focus {
+      border-color: #7b1fa2;
+      outline: none;
+    }
+  
+    body.dark-mode form input:focus {
+      border-color: #bb86fc;
+    }
+  
+    form button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #7b1fa2;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  
+    form button:hover {
+      background-color: #4a0072;
+    }
+  
+    body.dark-mode form button {
+      background-color: #bb86fc;
+    }
+  
+    body.dark-mode form button:hover {
+      background-color: #8855b8;
+    }
+  
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+    }
+  
+    body.dark-mode .error-message {
+      color: #ff5252;
+    }
+  
+    .result {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+  
+    body.dark-mode .result {
+      background: #1e1e1e;
+    }

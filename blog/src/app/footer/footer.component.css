@@ -1,0 +1,9 @@
+
+
+/* Stile footer */
+footer {
+    padding: 20px 0; /* Padding per dare spazio sopra e sotto il footer */
+    margin-top: 40px; /* Assicura che ci sia spazio tra le card e il footer */
+    background-color: #343a40;
+    color: #fff;
+  }

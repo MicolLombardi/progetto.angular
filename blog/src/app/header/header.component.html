@@ -1,0 +1,44 @@
+<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light px-3">
+  <a class="navbar-brand" href="#">Tarot Insights</a>
+
+  <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+  (click)="toggleNavbar()">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+
+  <div class="collapse navbar-collapse" id="navbarNav" #navbarNav>
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" (click)="closeNavbar()">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/posts" routerLinkActive="active" (click)="closeNavbar()">Posts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about" routerLinkActive="active" (click)="closeNavbar()">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/users" routerLinkActive="active" (click)="closeNavbar()">Utenti</a>
+      </li>
+    </ul>
+
+    <div class="d-flex align-items-center">
+      <ng-container *ngIf="loggedInUser; else guest">
+        <p class="mb-0 me-3 user-welcome">Benvenuto, {{ loggedInUser.username }}!</p>
+        
+        <button class="btn btn-danger logout-btn me-1" (click)="onLogout()">Logout</button>
+      </ng-container>
+      <button class="btn theme-toggle me-3" (click)="toggleDarkMode()">
+        <i [ngClass]="isDarkMode ? 'bi bi-moon-fill' : 'bi bi-sun-fill'"></i>
+      </button>
+
+      <ng-template #guest>
+        <p class="mb-0 me-3 user-welcome">Effettua il login per continuare.</p>
+    
+        <a routerLink="/login" id="login-button" class="btn btn-primary" (click)="closeNavbar()">Login</a>
+        
+      </ng-template>
+    </div>
+  </div>
+</nav>

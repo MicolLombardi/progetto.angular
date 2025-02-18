@@ -1,0 +1,21 @@
+<div class="post-container" *ngIf="post">
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.body }}</p>
+
+  <!-- Se l'utente è admin, mostra il modulo per la modifica e il pulsante di eliminazione -->
+  <div *ngIf="isAdmin">
+    <h3>Modifica Post</h3>
+    <form (ngSubmit)="onSaveChanges()">
+      <label for="title">Titolo:</label>
+      <input id="title" [(ngModel)]="post.title" name="title" required />
+
+      <label for="body">Contenuto:</label>
+      <textarea id="body" [(ngModel)]="post.body" name="body" required></textarea>
+
+      <div class="button-container">
+        <button type="submit" class="save-btn">Salva Modifiche</button>
+        <button type="button" class="delete-btn" (click)="onDeletePost()">Elimina Post</button>
+      </div>
+    </form>
+  </div>
+</div>

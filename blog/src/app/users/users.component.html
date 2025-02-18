@@ -1,0 +1,30 @@
+<div class="container mt-4">
+    <h2>Lista Utenti</h2>
+    <button *ngIf="isAdmin" class="btn btn-primary mb-3" routerLink="/form">
+      Crea Utente
+    </button>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th *ngIf="isAdmin">Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td *ngIf="isAdmin">
+            <button class="btn btn-primary btn-sm" [routerLink]="['/form', user.id]">
+              Modifica
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

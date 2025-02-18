@@ -1,0 +1,24 @@
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .btn-primary {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+       color: #f1eef5;
+  }
+  .btn-primary:hover {
+    background-color: #7044c1;
+    color: #fff;
+  }
+  .card-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+  }

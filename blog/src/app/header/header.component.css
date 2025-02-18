@@ -1,0 +1,23 @@
+/* Aggiungi margine tra il tasto di logout e quello della modalità dark */
+.d-flex {
+  display: flex;
+  flex-wrap: wrap; /* Permette agli elementi di andare a capo su schermi piccoli */
+  justify-content: center; /* Centra gli elementi orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  gap: 10px; /* Distanza uniforme tra tutti gli elementi */
+}
+
+/* Mantieni una distanza tra il tasto logout e il tema */
+.logout-btn {
+  margin-right: 10px; /* Ridotto per evitare eccessivo spazio */
+}
+
+/* Evita margine laterale */
+.theme-toggle {
+  margin-left: 0;
+}
+
+/* Spaziatura tra il benvenuto e i pulsanti */
+.user-welcome {
+  margin-right: 10px;
+}

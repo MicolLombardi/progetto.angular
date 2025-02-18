@@ -1,0 +1,108 @@
+/* Layout generale */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f3e5f5;
+  padding: 1rem;
+}
+
+/* Titolo */
+h1 {
+  color: #6a1b9a;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+body.dark-mode h1 {
+  color: #bb86fc;
+}
+
+/* Stile del form */
+form {
+  background: #ffffff;
+  padding: clamp(1.5rem, 5vw, 2rem); /* Adatta il padding dinamicamente */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Usa percentuale per adattarsi ai dispositivi più piccoli */
+  max-width: 500px; /* Larghezza massima del form */
+}
+
+body.dark-mode form {
+  background: #1e1e1e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Campi del form */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #d1c4e9;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-mode form input,
+body.dark-mode form select,
+body.dark-mode form textarea {
+  background-color: #2e2e2e;
+  color: #ffffff;
+  border: 1px solid #7b1fa2;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #7b1fa2;
+  outline: none;
+}
+
+body.dark-mode form input:focus,
+body.dark-mode form select:focus,
+body.dark-mode form textarea:focus {
+  border-color: #bb86fc;
+}
+
+/* Pulsante */
+form button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #7b1fa2;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 3px;
+}
+
+form button:hover {
+  background-color: #4a0072;
+}
+
+body.dark-mode form button {
+  background-color: #bb86fc;
+}
+
+body.dark-mode form button:hover {
+  background-color: #8855b8;
+}
+
+/* Messaggi di errore */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+

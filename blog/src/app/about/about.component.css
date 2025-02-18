@@ -1,0 +1,27 @@
+.title{
+  color: black;
+}
+
+.about-header {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.rounded-circle {
+  border: 2px solid #6f42c1;
+}
+
+.text-muted {
+  font-size: 0.9rem;
+}
+
+.btn-light {
+  color: #6f42c1;
+  border: 2px solid #6f42c1;
+}
+
+.btn-light:hover {
+  background-color: #6f42c1;
+  color: #fff;
+}

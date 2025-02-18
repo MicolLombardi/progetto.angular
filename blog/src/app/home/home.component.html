@@ -1,0 +1,23 @@
+
+<div class="hero-section text-center text-light d-flex align-items-center justify-content-center">
+  <div class="black">
+    <h1 class="display-4">Benvenuti su Tarot Insights</h1>
+    <p class="lead">Esplora i misteri dei tarocchi e scopri il tuo destino.</p>
+    <a routerLink="/posts" id="esplora" class="btn btn-primary btn-lg mt-3">Esplora i Post</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let post of posts">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <a [routerLink]="['/post-detail', post.id]" id="more" class="btn btn-primary">Leggi di più</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

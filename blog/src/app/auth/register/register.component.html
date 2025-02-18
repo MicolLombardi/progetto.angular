@@ -1,0 +1,50 @@
+<div class="register-container">
+  <div class="register-box">
+    <h2>Registrati</h2>
+    <form id="form" (ngSubmit)="onRegister()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          [(ngModel)]="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="role" class="form-label">Ruolo</label>
+        <select
+          id="role"
+          class="form-control"
+          [(ngModel)]="role"
+          name="role"
+          required
+        >
+          <option value="member">Member</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Registrati</button>
+
+      <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>
