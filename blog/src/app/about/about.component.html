@@ -30,6 +30,11 @@
   <div class="text-center bg-dark text-light py-5">
     <h2>Unisciti al Nostro Viaggio</h2>
     <p>Scopri di più su come i tarocchi possono trasformare la tua vita.</p>
-    <a routerLink="/contact" class="btn btn-light">Contattaci</a>
+    <button class="btn btn-primary" (click)="openModal()">Contattaci</button>
   </div>
+  
+  <app-modal (closeEvent)="onModalClose()">
+   <app-contact></app-contact>
+
+  </app-modal>
   

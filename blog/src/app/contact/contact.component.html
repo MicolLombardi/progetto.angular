@@ -1,31 +1,29 @@
-<app-modal #modal message="Contattaci" [showDefaultFooter]="false">
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label for="nome">Nome</label>
-      <input id="nome" formControlName="nome" class="form-control" />
+<!-- Modale Contatti -->
+<div #contactModal class="modal fade show" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Contattaci</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form Contatti -->
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email">
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Messaggio</label>
+            <textarea class="form-control" id="message" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Invia</button>
+        </form>
+      </div>
     </div>
-
-    <div class="mb-3">
-      <label for="cognome">Cognome</label>
-      <input id="cognome" formControlName="cognome" class="form-control" />
-    </div>
-
-    <div class="mb-3">
-      <label for="email">Email</label>
-      <input id="email" formControlName="email" class="form-control" type="email" />
-    </div>
-
-    <div class="mb-3">
-      <label for="messaggio">Messaggio</label>
-      <textarea id="messaggio" formControlName="messaggio" class="form-control"></textarea>
-    </div>
-
-    <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Invia</button>
-      <button type="button" class="btn btn-secondary" (click)="modal.closeModal()">Annulla</button>
-    </div>
-  </form>
-</app-modal>
-
-<!-- Pulsante per aprire la modale -->
-<button class="btn btn-primary" (click)="modal.openModal()">Apri Modale</button>
+  </div>
+</div>

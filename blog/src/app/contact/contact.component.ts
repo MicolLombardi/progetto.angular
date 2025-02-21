@@ -15,6 +15,8 @@ export class ContactComponent {
 
   @ViewChild('modal') modal!: ModalComponent;
 
+  
+
   constructor(private fb: FormBuilder, private contactService: ContactService, private router: Router) {
     this.contactForm = this.fb.group({
       nome: ['', Validators.required],

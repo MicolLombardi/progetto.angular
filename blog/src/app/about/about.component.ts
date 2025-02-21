@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalComponent } from '../shared/modal/modal.component';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './about.component.css'
 })
 export class AboutComponent implements OnInit {
+  @ViewChild(ModalComponent) modal!: ModalComponent;
+  showSummary: boolean = false;
   ngOnInit(): void {
    
   }
@@ -30,4 +33,13 @@ export class AboutComponent implements OnInit {
       description: 'Elena scrive articoli approfonditi sui tarocchi, esplorandone la storia e il significato culturale.',
   
     },
-  ];}
+  ];
+
+  openModal() {
+    this.modal.openModal();
+    this.showSummary = false; // Nasconde il riepilogo quando si riapre la modale
+  }
+
+  onModalClose() {
+    this.showSummary = true; // Mostra il riepilogo dopo la chiusura della modale
+  }}

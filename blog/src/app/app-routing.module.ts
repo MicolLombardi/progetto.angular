@@ -8,6 +8,7 @@ import { Error403Component } from './error403/error403.component';
 import { UsersComponent } from './users/users.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { DiscoverComponent } from './discover/discover.component';
+import { RiepilogoComponent } from './riepilogo/riepilogo.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ canActivate: [AuthGuard]
   {path:'category', component: CategoryFormComponent},
   { path: 'contact', loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule) }, 
   { path:'discover', component: DiscoverComponent},
+  {path:'riepilogo', component: RiepilogoComponent},
 ];
 
 @NgModule({

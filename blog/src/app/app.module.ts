@@ -1,3 +1,4 @@
+import { ContactComponent } from './contact/contact.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,7 @@ import { ContactModule } from './pages/contact/contact.module';
 import { DiscoverComponent } from './discover/discover.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { ModalModule } from './shared/modal/modal.module';
+import { RiepilogoComponent } from './riepilogo/riepilogo.component';
 
 
 
@@ -35,6 +37,8 @@ import { ModalModule } from './shared/modal/modal.module';
  SummaryComponent,
  CategoryFormComponent,
  DiscoverComponent,
+ RiepilogoComponent,
+ 
 
 
 
