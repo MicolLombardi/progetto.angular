@@ -17,6 +17,7 @@ import { ModalModule } from "../../shared/modal/modal.module";
     ContactRoutingModule,
     ReactiveFormsModule,
     ModalModule
-]
+],
+exports: [ContactComponent]
 })
 export class ContactModule { }
