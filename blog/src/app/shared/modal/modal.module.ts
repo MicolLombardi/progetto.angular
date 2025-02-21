@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [ModalComponent],
   imports: [CommonModule],
   exports: [ModalComponent,
-    NgbModule
+    NgbModule,
   ]
 })
 export class ModalModule {}
