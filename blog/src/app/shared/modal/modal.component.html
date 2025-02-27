@@ -4,9 +4,9 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
   </div>
   <div class="modal-body">
-    <ng-content></ng-content> <!-- Qui viene inserito il contenuto personalizzato -->
+    <ng-content></ng-content> 
   </div>
-  <div class="modal-footer" >
+  <div class="modal-footer" *ngIf="showDefaultFooter">
     <button class="btn btn-primary" (click)="closeModal()">OK</button>
   </div>
 </ng-template>

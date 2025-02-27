@@ -1,40 +1,47 @@
 <div class="about-header text-center text-light d-flex align-items-center justify-content-center">
-    <div class="title">
-      <h1 class="display-4">Chi Siamo</h1>
-      <p class="lead">Esplora i misteri, la saggezza e la magia dei tarocchi con noi.</p>
-    </div>
+  <div class="title">
+    <h1 class="display-4">Chi Siamo</h1>
+    <p class="lead">Esplora i misteri, la saggezza e la magia dei tarocchi con noi.</p>
   </div>
-  
-  <div class="container my-5">
-    <section>
-      <h2 class="text-center mb-4">La Nostra Missione</h2>
-      <p class="text-center">
-        Crediamo che i tarocchi non siano solo un mezzo di divinazione, ma un potente strumento per la crescita personale e la scoperta di sé. 
-        Attraverso la comprensione del simbolismo delle carte, guidiamo i nostri visitatori verso una maggiore consapevolezza e connessione con il loro io interiore.
-      </p>
-    </section>
-  
-    <section class="my-5">
-      <h2 class="text-center mb-4">Il Nostro Team</h2>
-      <div class="row">
-        <div class="col-md-4 text-center" *ngFor="let member of team">
-          
-          <h5>{{ member.name }}</h5>
-          <p>{{ member.role }}</p>
-          <p class="text-muted">{{ member.description }}</p>
-        </div>
-      </div>
-    </section>
-  </div>
-  
-  <div class="text-center bg-dark text-light py-5">
-    <h2>Unisciti al Nostro Viaggio</h2>
-    <p>Scopri di più su come i tarocchi possono trasformare la tua vita.</p>
-    <button class="btn btn-primary" (click)="openModal()">Contattaci</button>
-  </div>
-  
-  <app-modal (closeEvent)="onModalClose()">
-   <app-contact></app-contact>
+</div>
 
-  </app-modal>
-  
+<div class="container my-5">
+  <section>
+    <h2 class="text-center mb-4">La Nostra Missione</h2>
+    <p class="text-center">
+      Crediamo che i tarocchi non siano solo un mezzo di divinazione, ma un potente strumento per la crescita personale e la scoperta di sé. 
+      Attraverso la comprensione del simbolismo delle carte, guidiamo i nostri visitatori verso una maggiore consapevolezza e connessione con il loro io interiore.
+    </p>
+  </section>
+
+  <section class="my-5">
+    <h2 class="text-center mb-4">Il Nostro Team</h2>
+    <div class="row">
+      <div class="col-md-4 text-center" *ngFor="let member of team">
+        <h5>{{ member.name }}</h5>
+        <p>{{ member.role }}</p>
+        <p class="text-muted">{{ member.description }}</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="text-center bg-dark text-light py-5">
+  <h2>Unisciti al Nostro Viaggio</h2>
+  <p>Scopri di più su come i tarocchi possono trasformare la tua vita.</p>
+  <button class="btn btn-primary" (click)="openModal()">Contattaci</button>
+</div>
+
+
+<app-modal #modal [message]="'Contattaci'">
+  <app-contact (messageSent)="handleFormSubmit($event)"></app-contact>
+</app-modal>
+
+<!-- Riepilogo dopo invio -->
+<div *ngIf="contactForm" class="container my-5">
+  <h2 class="text-center">📩 Messaggio Inviato</h2>
+  <p><strong>Nome:</strong> {{ contactForm.nome }}</p>
+  <p><strong>Cognome:</strong> {{ contactForm.cognome }}</p>
+  <p><strong>Email:</strong> {{ contactForm.email }}</p>
+  <p><strong>Messaggio:</strong> {{ contactForm.messaggio }}</p>
+</div>

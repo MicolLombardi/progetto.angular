@@ -9,7 +9,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
  
 })
 export class ModalComponent {
-  @Input() message: string = 'Messaggio'; // Modificato da title a message
+  @Input() message: string = 'Messaggio';
   @Input() showDefaultFooter: boolean = true;
   @Output() closed = new EventEmitter<void>();
   @ViewChild('content') content!: TemplateRef<any>;

@@ -52,7 +52,7 @@ export class AuthService {
     return of(newUser).pipe(
       delay(1000),
       tap(() => { 
-        //integrazione servizio registrazione
+      
       })
     );
   }

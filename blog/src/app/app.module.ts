@@ -22,6 +22,8 @@ import { DiscoverComponent } from './discover/discover.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { ModalModule } from './shared/modal/modal.module';
 import { RiepilogoComponent } from './riepilogo/riepilogo.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -38,6 +40,8 @@ import { RiepilogoComponent } from './riepilogo/riepilogo.component';
  CategoryFormComponent,
  DiscoverComponent,
  RiepilogoComponent,
+ ProductListComponent,
+ CartComponent,
  
 
 

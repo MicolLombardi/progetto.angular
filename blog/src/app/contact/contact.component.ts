@@ -1,23 +1,19 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ContactService } from '../services/contact.service';
-import { ModalComponent } from '../shared/modal/modal.component';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
-  standalone: false,
+  standalone: false, 
 })
 export class ContactComponent {
   contactForm: FormGroup;
 
-  @ViewChild('modal') modal!: ModalComponent;
+  @Output() messageSent = new EventEmitter<any>();
 
-  
-
-  constructor(private fb: FormBuilder, private contactService: ContactService, private router: Router) {
+  constructor(private fb: FormBuilder, private contactService: ContactService) {
     this.contactForm = this.fb.group({
       nome: ['', Validators.required],
       cognome: ['', Validators.required],
@@ -33,7 +29,7 @@ export class ContactComponent {
       this.contactService.sendMessage(this.contactForm.value).subscribe({
         next: () => {
           console.log('Messaggio inviato con successo!');
-          this.modal.openModal();
+          this.messageSent.emit(this.contactForm.value); // Invia i dati ad AboutComponent
           this.contactForm.reset();
         },
         error: (err) => {
@@ -41,9 +37,5 @@ export class ContactComponent {
         }
       });
     }
-  }
-
-  onModalClosed() {
-    this.router.navigate(['/riepilogo'], { state: { data: this.contactForm.value } });
   }
 }

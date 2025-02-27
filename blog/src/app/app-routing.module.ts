@@ -9,6 +9,8 @@ import { UsersComponent } from './users/users.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { RiepilogoComponent } from './riepilogo/riepilogo.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -45,6 +47,8 @@ canActivate: [AuthGuard]
   { path: 'contact', loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule) }, 
   { path:'discover', component: DiscoverComponent},
   {path:'riepilogo', component: RiepilogoComponent},
+  {path:'product', component: ProductListComponent},
+  { path:'cart', component: CartComponent}
 ];
 
 @NgModule({

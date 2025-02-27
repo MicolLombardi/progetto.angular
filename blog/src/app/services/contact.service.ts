@@ -10,7 +10,7 @@ export class ContactService {
 
   constructor(private http: HttpClient) {}
 
-  sendMessage(formData: { nome: string; cognome: string; email: string; messaggio: string }): Observable<any> {
+  sendMessage(formData: { nome: string; email: string; messaggio: string }): Observable<any> {
 
     return this.http.post<any>(this.apiUrl, formData);
   }
