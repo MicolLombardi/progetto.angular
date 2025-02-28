@@ -1,29 +1,49 @@
 import { Injectable } from '@angular/core';
-import { Product } from './product.service';
 import { BehaviorSubject } from 'rxjs';
+import { Product } from '../product';
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
-  private cart: Product[] = [];
+  private cartItems: Product[] = [];
   private cartSubject = new BehaviorSubject<Product[]>([]);
 
   cart$ = this.cartSubject.asObservable();
 
+  constructor() {
+    this.loadCartFromStorage();
+  }
+
   addToCart(product: Product) {
-    this.cart.push(product);
-    this.cartSubject.next(this.cart);
+    this.cartItems.push(product);
+    this.updateCart();
   }
 
   removeFromCart(product: Product) {
-    this.cart = this.cart.filter(p => p.id !== product.id);
-    this.cartSubject.next(this.cart);
+    const index = this.cartItems.findIndex(item => item.id === product.id);
+    if (index !== -1) {
+      this.cartItems.splice(index, 1); // Rimuove solo il primo elemento trovato
+      this.updateCart();
+    }
   }
 
   clearCart() {
-    this.cart = [];
-    this.cartSubject.next(this.cart);
+    this.cartItems = [];
+    this.updateCart();
+  }
+
+  private updateCart() {
+    this.cartSubject.next([...this.cartItems]); // Aggiorna l'Observable
+    localStorage.setItem('cart', JSON.stringify(this.cartItems)); // Salva nel localStorage
+  }
+
+  private loadCartFromStorage() {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      this.cartItems = JSON.parse(savedCart);
+      this.cartSubject.next(this.cartItems);
+    }
   }
 }
