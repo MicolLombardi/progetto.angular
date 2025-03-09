@@ -1,20 +1,29 @@
 <div class="cart-container" *ngIf="cartItems.length > 0; else emptyCart">
-    <h2>Il tuo carrello</h2>
+    <h2>Il tuo Carrello</h2>
     <div class="cart-list">
       <div class="cart-item" *ngFor="let item of cartItems">
-        <span>{{ item.name }} - {{ item.price | currency:'EUR' }}</span>
-        <button class="remove-btn" (click)="removeItem(item)">Rimuovi</button>
+        <div class="cart-item-details">
+          <h4>{{ item.product.name }}</h4>
+          <p>{{ item.product.price | currency }}</p>
+          <div class="quantity-controls">
+            <button (click)="decreaseQuantity(item.product)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="increaseQuantity(item.product)">+</button>
+          </div>
+        </div>
+        <button (click)="removeFromCart(item.product)" class="remove-btn">Rimuovi</button>
       </div>
     </div>
-    <button class="clear-btn" (click)="clearCart()">Svuota Carrello</button>
+  
+    <button (click)="clearCart()" class="clear-btn">Svuota il carrello</button>
   </div>
   
-  <!-- Se il carrello è vuoto, mostra questo -->
   <ng-template #emptyCart>
     <div class="empty-cart">
-      <h2>Il tuo carrello è vuoto</h2>
-      <p>Aggiungi qualche prodotto per iniziare il tuo viaggio nei tarocchi!</p>
-      <a routerLink="/product" class="shop-btn">Esplora i prodotti</a>
+      <img src="path_to_empty_cart_image" alt="empty-cart" />
+      <h2>Il carrello è vuoto</h2>
+      <p>Non hai aggiunto ancora nulla al carrello.</p>
+      <a href="#" class="shop-btn">Vai allo Shop</a>
     </div>
   </ng-template>
   

@@ -24,6 +24,30 @@
     border-bottom: 1px solid #ddd;
   }
   
+  .item-info {
+    flex: 2;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .quantity-btn {
+    background: var(--button-primary, #7a3b9a);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .quantity-btn:hover {
+    background: var(--button-primary-hover, #5a2874);
+  }
+  
   .remove-btn {
     background: none;
     border: 2px solid var(--text-danger, #ff4d4d);
@@ -55,7 +79,7 @@
     background: var(--button-danger-hover, #a93226);
   }
   
-  /* Stile per il carrello vuoto */
+  /* Carrello vuoto */
   .empty-cart {
     display: flex;
     flex-direction: column;
