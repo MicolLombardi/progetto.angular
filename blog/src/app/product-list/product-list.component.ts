@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
-
 import { ProductService } from '../services/product.service';
+import { CartService } from '../services/cart.service';
 import { Product } from '../product';
+
 
 @Component({
   selector: 'app-product-list',
@@ -10,34 +10,45 @@ import { Product } from '../product';
   styleUrls: ['./product-list.component.css'],
   standalone: false,  
 })
-  export class ProductListComponent implements OnInit {
-    products: Product[] = [];
-    productQuantities: { [productId: number]: number } = {};
-  
-    constructor(private cartService: CartService, private productService: ProductService) {}
-  
-    ngOnInit() {
-      this.productService.getProducts().subscribe(products => {
-        this.products = products;
-      });
-  
-      this.cartService.cart$.subscribe(cartItems => {
-        this.productQuantities = {}; 
-        cartItems.forEach(item => {
-          this.productQuantities[item.product.id] = item.quantity;
-        });
-      });
-    }
-  
-    addToCart(product: Product) {
-      this.cartService.addToCart(product);
-    }
-  
-    removeFromCart(product: Product) {
-      this.cartService.removeFromCart(product);
-    }
-  
-    getProductQuantity(product: Product): number {
-      return this.productQuantities[product.id] || 0;
-    }
+export class ProductListComponent implements OnInit {
+  products: Product[] = [];
+  quantities: { [key: number]: number } = {}; // Memorizza le quantità per ogni prodotto
+
+  constructor(private productService: ProductService, private cartService: CartService) {}
+
+  ngOnInit() {
+    // Sottoscrizione ai prodotti dal ProductService
+    this.productService.getProducts().subscribe((products: Product[]) => {
+      this.products = products;
+      this.updateQuantities(); // Carica le quantità iniziali dal carrello
+    });
+
+    // Sottoscrizione agli aggiornamenti del carrello per mantenere aggiornate le quantità
+    this.cartService.cart$.subscribe(() => {
+      this.updateQuantities(); // Ricalcola le quantità ogni volta che il carrello cambia
+    });
+  }
+
+  // Funzione per aggiornare le quantità in base agli articoli nel carrello
+  updateQuantities() {
+    this.products.forEach(product => {
+      // Ottieni la quantità di ciascun prodotto dal carrello
+      this.quantities[product.id] = this.cartService.getProductQuantity(product.id);
+    });
+  }
+
+  increaseQuantity(product: Product) {
+    // Aggiungi il prodotto al carrello
+    this.cartService.addToCart(product);
+  }
+
+  decreaseQuantity(product: Product) {
+    // Rimuovi il prodotto dal carrello
+    this.cartService.removeFromCart(product);
+  }
+
+  addToCart(product: Product) {
+    // Aggiungi il prodotto al carrello
+    this.cartService.addToCart(product);
+  }
 }

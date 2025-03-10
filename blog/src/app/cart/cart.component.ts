@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Product } from '../product';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -9,7 +10,7 @@ import { Product } from '../product';
   standalone: false,  
 })
 export class CartComponent implements OnInit {
-  cartItems: { product: Product, quantity: number }[] = [];
+  cartItems: { product: Product; quantity: number }[] = [];
 
   constructor(private cartService: CartService) {}
 
@@ -20,26 +21,14 @@ export class CartComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    this.cartService.addToCart(product); // Aggiungi il prodotto al carrello
-  }
-
-  removeOneFromCart(product: Product) {
-    this.cartService.removeOneFromCart(product); // Riduci la quantità del prodotto
+    this.cartService.addToCart(product);
   }
 
   removeFromCart(product: Product) {
-    this.cartService.removeFromCart(product); // Rimuovi il prodotto dal carrello
+    this.cartService.removeFromCart(product);
   }
 
-  clearCart() {
-    this.cartService.clearCart(); // Svuota tutto il carrello
-  }
-
-  increaseQuantity(product: Product) {
-    this.cartService.addToCart(product); // Aumenta la quantità del prodotto
-  }
-
-  decreaseQuantity(product: Product) {
-    this.cartService.removeOneFromCart(product); // Diminuisci la quantità del prodotto
+  clearCart() { 
+    this.cartService.clearCart(); // ✅ Svuota il carrello
   }
 }

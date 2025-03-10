@@ -1,3 +1,4 @@
+/* Contenitore principale del carrello */
 .cart-container {
     max-width: 800px;
     margin: 40px auto;
@@ -9,9 +10,10 @@
   
   h2 {
     text-align: center;
-    color: var(--text-primary, #7a3b9a);
+    color: var(--text-primary, #7a3b9a); /* Colore viola */
   }
   
+  /* Lista degli articoli nel carrello */
   .cart-list {
     margin-top: 20px;
   }
@@ -24,50 +26,32 @@
     border-bottom: 1px solid #ddd;
   }
   
-  .item-info {
-    flex: 2;
-  }
-  
+  /* Controlli per la quantità */
   .quantity-controls {
     display: flex;
     align-items: center;
-    gap: 10px;
   }
   
-  .quantity-btn {
-    background: var(--button-primary, #7a3b9a);
+  .quantity-controls button {
+    background: var(--button-primary, #7a3b9a); /* Colore viola per i pulsanti */
     color: white;
     border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 6px 10px;
+    margin: 0 5px;
     cursor: pointer;
-    font-size: 16px;
+    border-radius: 4px;
   }
   
-  .quantity-btn:hover {
-    background: var(--button-primary-hover, #5a2874);
+  .quantity-controls button:hover {
+    background: var(--button-hover, #9b4d99); /* Colore viola scuro al passaggio del mouse */
   }
   
-  .remove-btn {
-    background: none;
-    border: 2px solid var(--text-danger, #ff4d4d);
-    color: var(--text-danger, #ff4d4d);
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-  }
-  
-  .remove-btn:hover {
-    background: var(--text-danger, #ff4d4d);
-    color: white;
-  }
-  
+  /* Pulsante per svuotare il carrello */
   .clear-btn {
     width: 100%;
     margin-top: 20px;
     padding: 12px;
-    background: var(--button-danger, #c0392b);
+    background: var(--button-danger, #c0392b); /* Rosso per il pulsante "svuota carrello" */
     color: white;
     font-weight: bold;
     border: none;
@@ -76,48 +60,38 @@
   }
   
   .clear-btn:hover {
-    background: var(--button-danger-hover, #a93226);
+    background: var(--button-danger-hover, #e74c3c); /* Colore più chiaro quando si passa sopra */
   }
   
-  /* Carrello vuoto */
+  /* Sezione per il carrello vuoto */
   .empty-cart {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 80vh;
+    align-items: center;
+    height: 100vh; /* Occupando tutta la pagina */
+    background-color: var(--bg-light, #f3f3f3);
+  }
+  
+  .empty-message {
+    font-size: 2rem;
+    color: var(--text-primary, #7a3b9a); /* Colore viola chiaro */
+    margin-bottom: 30px;
     text-align: center;
-  }
-  
-  .empty-cart img {
-    width: 200px;
-    margin-bottom: 20px;
-  }
-  
-  .empty-cart h2 {
-    color: var(--text-primary, #7a3b9a);
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .empty-cart p {
-    font-size: 16px;
-    color: var(--text-secondary, #555);
-    margin-bottom: 20px;
   }
   
   .shop-btn {
     display: inline-block;
-    padding: 10px 16px;
+    padding: 12px 20px;
     background: var(--button-primary, #7a3b9a);
     color: white;
     border-radius: 6px;
     text-decoration: none;
-    font-weight: bold;
-    transition: background 0.2s ease-in-out;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
   }
   
   .shop-btn:hover {
-    background: var(--button-primary-hover, #5a2874);
+    background: var(--button-hover, #9b4d99); /* Colore viola scuro per il pulsante "Vai allo Shop" */
   }
   

@@ -1,29 +1,25 @@
-<div class="cart-container" *ngIf="cartItems.length > 0; else emptyCart">
-    <h2>Il tuo Carrello</h2>
+<div *ngIf="cartItems.length > 0; else emptyCart" class="cart-container">
+    <h2>Il tuo carrello</h2>
+  
     <div class="cart-list">
-      <div class="cart-item" *ngFor="let item of cartItems">
-        <div class="cart-item-details">
-          <h4>{{ item.product.name }}</h4>
-          <p>{{ item.product.price | currency }}</p>
-          <div class="quantity-controls">
-            <button (click)="decreaseQuantity(item.product)">-</button>
-            <span>{{ item.quantity }}</span>
-            <button (click)="increaseQuantity(item.product)">+</button>
-          </div>
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <p>{{ item.product.name }}</p>
+  
+        <div class="quantity-controls">
+          <button (click)="removeFromCart(item.product)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="addToCart(item.product)">+</button>
         </div>
-        <button (click)="removeFromCart(item.product)" class="remove-btn">Rimuovi</button>
       </div>
     </div>
   
-    <button (click)="clearCart()" class="clear-btn">Svuota il carrello</button>
+    <button (click)="clearCart()" class="clear-btn">Svuota Carrello</button>
   </div>
   
   <ng-template #emptyCart>
     <div class="empty-cart">
-      <img src="path_to_empty_cart_image" alt="empty-cart" />
-      <h2>Il carrello è vuoto</h2>
-      <p>Non hai aggiunto ancora nulla al carrello.</p>
-      <a href="#" class="shop-btn">Vai allo Shop</a>
+      <p class="empty-message">Il tuo carrello è vuoto</p>
+      <a routerLink="/product" class="shop-btn">Vai allo Shop</a>
     </div>
   </ng-template>
   

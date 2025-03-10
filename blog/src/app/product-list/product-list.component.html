@@ -1,18 +1,17 @@
-<div class="container">
-    <h2 class="title">Esplora i nostri prodotti</h2>
-    <div class="products-grid">
-      <div class="product-card" *ngFor="let product of products">
-        <div class="product-info">
-          <h3>{{ product.name }}</h3>
-          <p class="description">{{ product.description }}</p>
-          <p class="price">{{ product.price | currency: 'EUR' }}</p>
-          <div class="quantity-controls">
-            <button (click)="removeFromCart(product)">-</button>
-            <span>{{ getProductQuantity(product) }}</span>
-            <button (click)="addToCart(product)">+</button>
-          </div>
-        </div>
+<div class="product-list">
+    <div class="product" *ngFor="let product of products">
+      <div class="product-details">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.price | currency }}</p>
       </div>
+  
+      <div class="quantity-controls">
+        <button (click)="decreaseQuantity(product)" [disabled]="quantities[product.id] === 0">-</button>
+        <span>{{ quantities[product.id] || 0 }}</span>
+        <button (click)="increaseQuantity(product)">+</button>
+      </div>
+  
+      <button class="add-to-cart" (click)="addToCart(product)">Aggiungi al carrello</button>
     </div>
   </div>
   
