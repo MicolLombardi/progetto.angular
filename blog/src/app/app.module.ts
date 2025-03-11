@@ -24,6 +24,7 @@ import { ModalModule } from './shared/modal/modal.module';
 import { RiepilogoComponent } from './riepilogo/riepilogo.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
+import { CartWidgetComponent } from './cart-widget/cart-widget.component';
 
 
 
@@ -42,6 +43,7 @@ import { CartComponent } from './cart/cart.component';
  RiepilogoComponent,
  ProductListComponent,
  CartComponent,
+ CartWidgetComponent,
  
 
 

@@ -7,11 +7,15 @@
   
       <div class="quantity-controls">
         <button (click)="decreaseQuantity(product)" [disabled]="quantities[product.id] === 0">-</button>
-        <span>{{ quantities[product.id] || 0 }}</span>
+        <span>{{ quantities[product.id] }}</span>
         <button (click)="increaseQuantity(product)">+</button>
       </div>
   
       <button class="add-to-cart" (click)="addToCart(product)">Aggiungi al carrello</button>
     </div>
   </div>
+  <!-- Aggiungi il widget dei prodotti aggiunti -->
+<app-cart-widget *ngIf="showCartWidget"></app-cart-widget>
+
+  
   

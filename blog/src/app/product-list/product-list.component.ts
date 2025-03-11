@@ -13,6 +13,7 @@ import { Product } from '../product';
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
   quantities: { [key: number]: number } = {}; // Memorizza le quantità per ogni prodotto
+  showCartWidget = false;
 
   constructor(private productService: ProductService, private cartService: CartService) {}
 
@@ -50,5 +51,11 @@ export class ProductListComponent implements OnInit {
   addToCart(product: Product) {
     // Aggiungi il prodotto al carrello
     this.cartService.addToCart(product);
+    this.showCartWidget = true;
+
+    // Nasconde il widget dopo 3 secondi
+    setTimeout(() => {
+      this.showCartWidget = false;
+    }, 3000);  // 3 secondi
   }
 }
