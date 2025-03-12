@@ -6,21 +6,24 @@ import { Product } from '../product';
   providedIn: 'root'
 })
 export class CartService {
-  private cartItems: { product: Product, quantity: number }[] = [];
-
-  // BehaviorSubject per monitorare lo stato del carrello
-  private cartSubject = new BehaviorSubject<{ product: Product, quantity: number }[]>(this.loadCart());
-  cart$ = this.cartSubject.asObservable(); // Observable per ascoltare i cambiamenti del carrello
+  private cartItems: { product: Product, quantity: number }[] = this.loadCartFromLocalStorage();
+  private cartSubject = new BehaviorSubject(this.cartItems);
+  cart$ = this.cartSubject.asObservable(); // Osservabile per aggiornare la UI
 
   constructor() {}
 
-  // Carica il carrello dal localStorage se presente
-  private loadCart(): { product: Product, quantity: number }[] {
-    const cart = localStorage.getItem('cart');
-    return cart ? JSON.parse(cart) : [];
+  // 📌 Funzione per CARICARE il carrello dal localStorage
+  private loadCartFromLocalStorage(): { product: Product, quantity: number }[] {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
   }
 
-  // Aggiungi un prodotto al carrello
+  // 📌 Funzione per SALVARE il carrello nel localStorage
+  private saveCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(this.cartItems));
+  }
+
+  // 📌 Funzione per aggiungere un prodotto al carrello
   addToCart(product: Product) {
     const existingItem = this.cartItems.find(item => item.product.id === product.id);
     if (existingItem) {
@@ -28,15 +31,10 @@ export class CartService {
     } else {
       this.cartItems.push({ product, quantity: 1 });
     }
-    this.updateCart(); // Aggiorna il carrello e salva in localStorage
+    this.updateCart();
   }
 
-  // Ottieni tutti gli articoli del carrello
-  getCartItems(): { product: Product, quantity: number }[] {
-    return this.cartItems;
-  }
-
-  // Rimuovi un prodotto dal carrello
+  // 📌 Funzione per rimuovere un prodotto dal carrello (uno alla volta)
   removeFromCart(product: Product) {
     const existingItem = this.cartItems.find(item => item.product.id === product.id);
     if (existingItem) {
@@ -46,24 +44,24 @@ export class CartService {
         this.cartItems = this.cartItems.filter(item => item.product.id !== product.id);
       }
     }
-    this.updateCart(); // Aggiorna il carrello e salva in localStorage
+    this.updateCart();
   }
 
-  // Restituisce la quantità di un prodotto nel carrello
+  // 📌 Funzione per ottenere la quantità di un prodotto
   getProductQuantity(productId: number): number {
     const item = this.cartItems.find(item => item.product.id === productId);
     return item ? item.quantity : 0;
   }
 
-  // Pulisci il carrello
+  // 📌 Funzione per svuotare il carrello
   clearCart() {
     this.cartItems = [];
-    this.updateCart(); // Aggiorna il carrello e salva in localStorage
+    this.updateCart();
   }
 
-  // Funzione per salvare il carrello su localStorage
+  // 📌 Funzione per aggiornare il carrello e salvare i dati
   private updateCart() {
-    localStorage.setItem('cart', JSON.stringify(this.cartItems)); // Salva il carrello in localStorage
-    this.cartSubject.next(this.cartItems); // Notifica i cambiamenti al comportamento del carrello
+    this.cartSubject.next(this.cartItems);
+    this.saveCartToLocalStorage(); // 🔥 Salva il carrello nel localStorage
   }
 }

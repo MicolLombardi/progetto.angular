@@ -91,4 +91,32 @@
     flex-direction: column;
     align-items: center;
   }
+  .cart-widget {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out;
+    max-width: 250px;
+  }
+  
+  .cart-widget p {
+    margin: 5px 0;
+  }
+  
+  .cart-widget ul {
+    padding: 0;
+    margin: 5px 0;
+    list-style: none;
+  }
+  
+  .cart-widget li {
+    font-size: 14px;
+  }
+  
   

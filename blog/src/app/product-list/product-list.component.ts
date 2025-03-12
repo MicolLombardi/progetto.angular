@@ -3,59 +3,70 @@ import { ProductService } from '../services/product.service';
 import { CartService } from '../services/cart.service';
 import { Product } from '../product';
 
-
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
-  standalone: false,  
+  standalone: false,
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  quantities: { [key: number]: number } = {}; // Memorizza le quantità per ogni prodotto
+  quantities: { [key: number]: number } = {}; 
   showCartWidget = false;
+  totalItemsInCart = 0;
+  lastAddedProducts: Product[] = []; // 🔥 Ultimi 3 prodotti aggiunti
 
   constructor(private productService: ProductService, private cartService: CartService) {}
 
   ngOnInit() {
-    // Sottoscrizione ai prodotti dal ProductService
     this.productService.getProducts().subscribe((products: Product[]) => {
       this.products = products;
-      this.updateQuantities(); // Carica le quantità iniziali dal carrello
+      this.updateQuantities(); 
     });
 
-    // Sottoscrizione agli aggiornamenti del carrello per mantenere aggiornate le quantità
     this.cartService.cart$.subscribe(() => {
-      this.updateQuantities(); // Ricalcola le quantità ogni volta che il carrello cambia
+      this.updateQuantities();
+      this.updateCartWidget(); // 🔥 Aggiorna il widget quando il carrello cambia
     });
+
+    this.updateCartWidget(); // 🔥 Carica il numero iniziale di prodotti nel widget
   }
 
-  // Funzione per aggiornare le quantità in base agli articoli nel carrello
   updateQuantities() {
     this.products.forEach(product => {
-      // Ottieni la quantità di ciascun prodotto dal carrello
-      this.quantities[product.id] = this.cartService.getProductQuantity(product.id);
+      this.quantities[product.id] = this.cartService.getProductQuantity(product.id) || 0;
     });
   }
 
   increaseQuantity(product: Product) {
-    // Aggiungi il prodotto al carrello
     this.cartService.addToCart(product);
+    this.updateLastAddedProducts(product); // 🔥 Aggiungi il prodotto alla lista degli ultimi aggiunti
+    this.showCart();
   }
 
   decreaseQuantity(product: Product) {
-    // Rimuovi il prodotto dal carrello
     this.cartService.removeFromCart(product);
+    this.updateCartWidget();
   }
 
-  addToCart(product: Product) {
-    // Aggiungi il prodotto al carrello
-    this.cartService.addToCart(product);
+  // 🔥 Mostra il widget e lo nasconde dopo 3 secondi
+  showCart() {
     this.showCartWidget = true;
-
-    // Nasconde il widget dopo 3 secondi
+    this.updateCartWidget();
     setTimeout(() => {
       this.showCartWidget = false;
-    }, 3000);  // 3 secondi
+    }, 3000);
+  }
+
+  // 🔥 Aggiorna il numero totale di prodotti nel carrello
+  updateCartWidget() {
+    this.totalItemsInCart = Object.values(this.quantities).reduce((acc, val) => acc + val, 0);
+  }
+
+  // 🔥 Aggiorna la lista degli ultimi prodotti aggiunti
+  updateLastAddedProducts(product: Product) {
+    this.lastAddedProducts = [product, ...this.lastAddedProducts.slice(0, 2)]; // Mantiene solo gli ultimi 3
   }
 }
+
+
